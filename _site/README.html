@@ -1,0 +1,61 @@
+<p align="center">
+<img
+    src="/static/img/logo.png"
+    width="260" border="0" alt="rwtxt">
+<br>
+<a href="https://travis-ci.org/schollz/rwtxt"><img
+src="https://img.shields.io/travis/schollz/rwtxt.svg?style=flat-square"
+alt="Build Status"></a> <a
+href="https://github.com/schollz/rwtxt/releases/latest"><img
+src="https://img.shields.io/badge/version-1.8.1-brightgreen.svg?style=flat-square"
+alt="Version"></a> </p>
+<p align="center">A cms for absolute minimalists. Try it at <a href="https://rwtxt.com/public">rwtxt.com</a>.</p>
+<p><em>rwtxt</em> is an <a href="https://github.com/schollz/rwtxt">open-source</a> website where you can store any text online for easy sharing and quick recall. In more specific terms, it is a light-weight and fast content management system (CMS) where you write in Markdown with emphasis on reading.</p>
+<p><em>rwtxt</em> builds off <a href="https://cowyo.com">cowyo</a>, a similar app I made previously. In improving with <em>rwtxt</em> I aimed to avoid <a href="https://en.wikipedia.org/wiki/Second-system_effect">second-system syndrome</a>: I got rid of features I never used in cowyo (self-destruction, encryption, locking), while integrating a useful new feature not available previously: you can create  <em>domains</em>. A <em>domain</em> is basically a personalized namespace where you can write private/public posts that are searchable. I personally use <em>rwtxt</em> to collect and jot notes for work, personal, coding - each which has its own searchable and indexed domain.</p>
+<p><em>rwtxt</em> is backed by a single <a href="https://www.sqlite.org/index.html">sqlite3</a> database, so it's portable and very easy to backup. It's written in Go and all the assets are bundled so you can just download a single binary and start writing. You can also try the online version: <a href="https://rwtxt.com/public">rwtxt.com</a>.</p>
+<h2>Usage</h2>
+<p><strong>Reading.</strong> You can share <em>rwtxt</em> links to read them on another computer. <em>rwtxt</em> is organized in <em>domains</em> - places where you can privately or publicly store your text. If the <em>domain</em> is private, you must be signed in to read, even you have the permalink.</p>
+<p>You can easily <a href="https://rwtxt.com/public">create your own domain</a> in 10 seconds. When you make a new domain it will be private by default, so only you can view/search/edit your own text.</p>
+<p>Once you make a domain you will see an option to make your domain <em>public</em> so that anyone can view/search it. However, only people with the domain password can edit in your domain - making <em>rwtxt</em> useful as a password-protected wiki. (The one exception is the <a href="https://rwtxt.com/public"><code>/public</code></a> domain, which anyone can edit/view - making <em>rwtxt</em> useful as a pastebin).</p>
+<p><strong>Writing.</strong> To write in <em>rwtxt</em>, just create a new page and click &quot;Edit&quot;, or goto a URL for the thing you want to write about - like <a href="https://rwtxt.com/public/write-something">rwtxt.com/public/write-something</a>. When you write in <em>rwtxt</em> you can format your text in <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>.</p>
+<p>In addition, writing triple backtick code blocks:</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#c0c5ce;">```javascript
+</span><span style="background-color:#2b303b;color:#c0c5ce;">console.log(&quot;hello, world&quot;);
+</span><span style="background-color:#2b303b;color:#c0c5ce;">```
+</span></pre>
+<p>produces code highlighted with <a href="https://prismjs.com/">prism.js</a>:</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#c0c5ce;">console.</span><span style="background-color:#2b303b;color:#96b5b4;">log</span><span style="background-color:#2b303b;color:#c0c5ce;">(&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">hello, world</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;);
+</span></pre>
+<p><strong>Deleting.</strong> You can easily delete your page. Just erase all the content from it and it will disappear forever within 10 seconds.</p>
+<h2>Install</h2>
+<p>You can easily install and run <em>rwtxt</em> on your own computer.</p>
+<p>You can download a binary for the <a href="https://github.com/schollz/rwtxt/releases/latest">latest release</a>.</p>
+<p>Or you can install from source. First, make sure to <a href="https://golang.org/dl/">install Go</a>. Then clone the repo:</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#8fa1b3;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> git clone https://github.com/schollz/rwtxt.git
+</span></pre>
+<p>Then you can make it with:</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#8fa1b3;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> make
+</span></pre>
+<p>And then run it!</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#8fa1b3;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> export PATH=&quot;$</span><span style="background-color:#2b303b;color:#a3be8c;">{</span><span style="background-color:#2b303b;color:#bf616a;">PATH</span><span style="background-color:#2b303b;color:#a3be8c;">}:</span><span style="background-color:#2b303b;color:#c0c5ce;">$</span><span style="background-color:#2b303b;color:#a3be8c;">{</span><span style="background-color:#2b303b;color:#bf616a;">GOPATH</span><span style="background-color:#2b303b;color:#a3be8c;">}/bin</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#8fa1b3;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> rwtxt
+</span></pre>
+<h3>Docker</h3>
+<p>You can also easily install and run with Docker.</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ docker pull schollz/rwtxt
+</span></pre>
+<p>Then run by using docker</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ docker run -v /place/to/store/data:/data -p 8000:8152 schollz/rwtxt
+</span></pre>
+<p>In this case <code>-p 8000:8152</code> will have rwtxt will be running on port 8000.</p>
+<h2>Notice</h2>
+<p>By using <a href="https://rwtxt.com">rwtxt.com</a> you agree to the <a href="https://rwtxt.com/rwtxt/terms-of-service">terms of service</a>.</p>
+<h2>License</h2>
+<p>MIT</p>
